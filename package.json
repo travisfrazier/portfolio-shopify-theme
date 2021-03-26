@@ -1,11 +1,23 @@
 {
-  "name": "portfolio-shopify-theme",
+  "name": "shopify-testing",
   "version": "1.0.0",
-  "description": "shopify custom theme",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "node scripts/deploy.js",
+    "dev": "node scripts/watch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travisfrazier/portfolio-shopify-theme.git"
   },
   "author": "Travis Frazier",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/travisfrazier/portfolio-shopify-theme/issues"
+  },
+  "homepage": "https://github.com/travisfrazier/portfolio-shopify-theme#readme",
+  "dependencies": {
+    "@shopify/themekit": "^1.1.6"
+  }
 }
