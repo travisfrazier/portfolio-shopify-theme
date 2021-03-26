@@ -1,0 +1,91 @@
+<section class="hero hero-{{ section.id }}">
+    <div class="wrapper">
+        <div>
+            <div class="content-box">
+            {% if section.settings.title != blank %}
+                <h2>{{ section.settings.title | escape }}</h2>
+            {% endif %}
+            {% if section.settings.text != blank %}
+                <div class="rte">{{ section.settings.text }}</div>
+            {% endif %}
+            {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+                <a href="{{ section.settings.button_link }}" class="button outline">{{ section.settings.button_label | escape }}</a>
+            {% endif %}
+            </div>
+            {% if section.settings.image == blank %}
+            <div class="placeholder-background">
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<style>
+.hero {
+  width:100%;
+  background-image: url({{ section.settings.image | image_url }});
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
+  
+  {% schema %}
+  {
+    "name": "Hero Image",
+    "class": "hero-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text overlay"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "color",
+        "id": "color_overlay",
+        "label": "Overlay",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "color_overlay_alpha_range",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Image overlay opacity",
+        "default": 30
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Image",
+        "category": "Image"
+      }
+    ]
+  }
+  {% endschema %}
+  
