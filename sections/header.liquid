@@ -1,27 +1,45 @@
-<header>
-    <nav>
+{{ 'header.scss' | asset_url | stylesheet_tag }}
+
+<header class="c-header">
+    <nav class="c-nav">
+    <img class="c-nav__logo" src="{{ section.settings.image | image_url }}" />
+    <div class="c-nav__inner">
     {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
+      <a class="c-nav__link" href="{{ link.url }}">{{ link.title }}</a>
       [{% for childlink in linklists[child_list_handle].links %}
-        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a> 
       {% endfor %}]
     {% else %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
+      <a class="c-nav__link" href="{{ link.url }}">{{ link.title }}</a>
     {% endif %}
-  {% endfor %}
+    {% endfor %}
+    </div>
+    <div class="c-nav__actions">
+    {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+        <a class="c-nav__link" href="/account">Account</a>
+        {{ 'log out'  | customer_logout_link }}
+      {% else %}
+      <a class="c-nav__link" href="/account">Log In</a>
+      {% endif %}
+    {% endif %}
+    <a class="c-nav__link" href="/cart">Cart</a>
+    </div>
   </nav>
-
-  <a href="/cart">Cart</a>
-
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <a href="/account">Account</a>
-      {{ 'log out'  | customer_logout_link }}
-    {% else %}
-      {{ 'log in ' | customer_login_link }}
-      {{ 'register' | customer_register_link }}
-    {% endif %}
-  {% endif %}
 </header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "c-header__container",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}
