@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500;700&display=swap');
+
+$color-secondary: #F2E205;
+$color-primary: #F2620F;
+$color-white: #fff;
+
+$font-main: 'Roboto', sans-serif;
+$font-secondary: 'Pattaya', sans-serif;
+
+@import 'partials/base';
+@import 'partials/header';
+@import 'partials/hero';
+

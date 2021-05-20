@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500;700&display=swap");
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.c-header {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  border-bottom: 2px solid #F2620F;
+}
+
+.c-nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.c-nav__inner {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c-nav__link {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  color: #F2620F;
+  text-decoration: none;
+}
+
+.c-nav__link:not(:last-child):after {
+  content: " / ";
+}
+
+.c-nav__logo {
+  width: 5rem;
+}
+
+.c-nav__actions {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  font-size: 1.6rem;
+  color: #F2620F;
+}
+.c-nav__actions a {
+  color: #F2620F;
+}
+
+.c-hero {
+  width: 100%;
+  min-height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.c-hero__title {
+  font-size: 7rem;
+  color: #fff;
+  font-family: "Pattaya", sans-serif;
+}
+
+.c-hero__button {
+  font-size: 2rem;
+  cursor: pointer;
+  border: 2px solid #F2620F;
+  border-radius: 10px;
+  padding: 1.5rem 3.5rem;
+  color: #F2620F;
+  text-decoration: none;
+  background: #fff;
+}
+.c-hero__button:hover {
+  background: #F2620F;
+  color: #fff;
+}
